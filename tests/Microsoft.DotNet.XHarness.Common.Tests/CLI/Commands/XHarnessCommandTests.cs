@@ -244,7 +244,7 @@ namespace Microsoft.DotNet.XHarness.Common.Tests.Utilities
 
         private class SampleUnitTestArguments : XHarnessCommandArguments
         {
-            public int Number { get; private set; } = 0;
+            public int Number { get; private set; }
 
             public SampleEnum Enum { get; private set; } = SampleEnum.Value1;
 

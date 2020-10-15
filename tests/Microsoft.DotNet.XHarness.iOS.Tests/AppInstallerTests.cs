@@ -57,7 +57,11 @@ namespace Microsoft.DotNet.XHarness.iOS.Tests
                 extension: null);
         }
 
-        public void Dispose() => Directory.Delete(s_appPath, true);
+        public void Dispose()
+        {
+            Directory.Delete(s_appPath, true);
+            GC.SuppressFinalize(this);
+        }
 
         [Fact]
         public async Task InstallToSimulatorTest()
