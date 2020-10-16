@@ -49,7 +49,6 @@ namespace Microsoft.DotNet.XHarness.Common.Tests.Logging
             _log.Dispose();
             Console.SetOut(_sdoutWriter); // get back to write to the console
             File.Delete(_testFile);
-            GC.SuppressFinalize(this);
         }
     }
 }

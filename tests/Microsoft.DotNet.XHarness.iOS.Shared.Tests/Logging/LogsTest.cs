@@ -31,7 +31,6 @@ namespace Microsoft.DotNet.XHarness.iOS.Shared.Tests.Logging
             {
                 Directory.Delete(_directory, true);
             }
-            GC.SuppressFinalize(this);
         }
 
         [Fact]

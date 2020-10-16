@@ -2,25 +2,27 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using System;
-using System.Net.WebSockets;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+
+using System;
+using System.Threading.Tasks;
+using System.Net.WebSockets;
 
 namespace Microsoft.DotNet.XHarness.CLI.Commands.Wasm
 {
     public class WasmTestWebServerStartup
     {
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment s_hostingEnvironment;
 
         public WasmTestWebServerStartup(IWebHostEnvironment hostingEnvironment)
         {
-            _hostingEnvironment = hostingEnvironment;
+            this.s_hostingEnvironment = hostingEnvironment;
         }
 
         public void Configure(IApplicationBuilder app, IOptionsMonitor<WasmTestWebServerOptions> optionsAccessor)
@@ -35,7 +37,7 @@ namespace Microsoft.DotNet.XHarness.CLI.Commands.Wasm
 
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new PhysicalFileProvider(_hostingEnvironment.ContentRootPath),
+                FileProvider = new PhysicalFileProvider(s_hostingEnvironment.ContentRootPath),
                 ContentTypeProvider = provider,
                 ServeUnknownFileTypes = true
             });

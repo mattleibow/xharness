@@ -1118,7 +1118,6 @@ namespace Microsoft.DotNet.XHarness.iOS.Shared.Utilities
             {
                 "MtouchExtraArgs",
             };
-
             Func<string, string> convert = null;
             convert = (input) =>
             {

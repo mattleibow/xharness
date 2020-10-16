@@ -41,7 +41,6 @@ namespace Microsoft.DotNet.XHarness.iOS.Shared.Tests.TestImporter.Templates.Mana
             {
                 Directory.Delete(_outputdir, true);
             }
-            GC.SuppressFinalize(this);
         }
 
         [Theory]

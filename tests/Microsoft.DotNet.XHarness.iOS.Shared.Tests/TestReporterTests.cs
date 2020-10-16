@@ -62,7 +62,6 @@ namespace Microsoft.DotNet.XHarness.iOS.Shared.Tests
             {
                 Directory.Delete(_logsDirectory, true);
             }
-            GC.SuppressFinalize(this);
         }
 
         private Stream GetRunLogSample()

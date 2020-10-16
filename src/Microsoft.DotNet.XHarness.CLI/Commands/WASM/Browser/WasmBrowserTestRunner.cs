@@ -43,10 +43,10 @@ namespace Microsoft.DotNet.XHarness.CLI.Commands.Wasm
         public WasmBrowserTestRunner(WasmTestBrowserCommandArguments arguments, IEnumerable<string> passThroughArguments,
                                             WasmTestMessagesProcessor messagesProcessor, ILogger logger)
         {
-            _arguments = arguments;
-            _logger = logger;
-            _passThroughArguments = passThroughArguments;
-            _messagesProcessor = messagesProcessor;
+            this._arguments = arguments;
+            this._logger = logger;
+            this._passThroughArguments = passThroughArguments;
+            this._messagesProcessor = messagesProcessor;
         }
 
         public async Task<ExitCode> RunTestsWithWebDriver(DriverService driverService, IWebDriver driver)

@@ -31,7 +31,6 @@ namespace Microsoft.DotNet.XHarness.iOS.Shared.Tests.Listeners
             {
                 File.Delete(_path);
             }
-            GC.SuppressFinalize(this);
         }
 
         [Fact]
