@@ -4,13 +4,8 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
-#if XAMCORE_2_0 || __UNIFIED__
 using AppKit;
 using Foundation;
-#else
-using MonoMac.AppKit;
-using MonoMac.Foundation;
-#endif
 using BCLTests;
 using Xamarin.iOS.UnitTests;
 using Xamarin.iOS.UnitTests.NUnit;
@@ -62,13 +57,13 @@ namespace Xamarin.Mac.Tests
             }
             await runner.Run(testAssemblies).ConfigureAwait(false);
 
-            if (options.ResultFile != null)
+            if (options.LogFile != null)
             {
-                using (var writer = new StreamWriter(options.ResultFile))
+                using (var writer = new StreamWriter(options.LogFile))
                 {
                     runner.WriteResultsToFile(writer, TestRunner.Jargon.NUnitV3);
                 }
-                logger.Info($"Xml result can be found {options.ResultFile}");
+                logger.Info($"Xml result can be found {options.LogFile}");
             }
 
             logger.Info($"Tests run: {runner.TotalTests} Passed: {runner.PassedTests} Inconclusive: {runner.InconclusiveTests} Failed: {runner.FailedTests} Ignored: {runner.FilteredTests + runner.SkippedTests}");
