@@ -9,5 +9,9 @@
     <PreReleaseVersionLabel>prerelease</PreReleaseVersionLabel>
     <!-- Don't allow netstandard1.x dependencies in this repository. -->
     <FlagNetStandard1XDependencies>true</FlagNetStandard1XDependencies>
+    
+    <!-- Package versions -->
+    <XUnitVersion>2.9.2</XUnitVersion>
+    <XUnitV3Version>3.0.0-pre.42</XUnitV3Version>
   </PropertyGroup>
 </Project>
